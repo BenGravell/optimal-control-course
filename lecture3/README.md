@@ -12,5 +12,5 @@
 ![pdf_of_product_of_gaussians.png](images/pdf_of_product_of_gaussians.png)
 
 ## Scalar stochastic system with multiplicative and additive noise
-![multiplicative_additive_noise_scalar_1](multiplicative_additive_noise_scalar_1.png)
-![multiplicative_additive_noise_scalar_2](multiplicative_additive_noise_scalar_2.png)
+![multiplicative_additive_noise_scalar_1](images/multiplicative_additive_noise_scalar_1.png)
+![multiplicative_additive_noise_scalar_2](images/multiplicative_additive_noise_scalar_2.png)
