@@ -46,8 +46,6 @@ problem_settings = {'Mean-square   Stable':
                      'w_mean': 0.00,
                      'w_std': 0.10}}
 
-
-
 # Problem settings
 # Make sure to use many trajectories e.g. > 100000 or else, with high probability, you will not observe
 # the low probability events which make variance of the state blow up as t -> inf for the ms-unstable system
@@ -145,6 +143,8 @@ for k, (key, problem_setting) in enumerate(problem_settings.items()):
                                                                   np.percentile(x_hist[:, -1], 90)))
 fig.tight_layout()
 figh.tight_layout()
+plt.close(figh)
+
 
 # Note that we have used the symlog scale on the y-axis - this means that the mean-square unstable system
 # is extraordinarily volatile as we observe rare "blowup events" which are not observed in the mean-square stable system

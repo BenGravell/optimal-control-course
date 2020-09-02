@@ -10,6 +10,9 @@ def normalize(pmf):
     return pmf/(np.sum(np.abs(pmf)))
 
 
+# This sampling function samples from a discrete distribution with probability mass function "pmf"
+# and support coordinates specified in "support" by mapping a uniform random variable "u" onto the
+# cumulative distribution function "cdf" and finding the associated support coordinate index
 def sample(pmf, support=None):
     if support is None:
         support = np.arange(pmf.size)
@@ -18,9 +21,14 @@ def sample(pmf, support=None):
     # Sample from the uniform distribution
     u = npr.rand()
     # Find first index where cdf exceeds the uniform sample
-    idx = bisect.bisect_left(cdf, u)-1
+    idx = bisect.bisect_left(cdf, u)
     # Map the index onto the support and return the sample
     return support[idx]
+
+
+# This sampling function does the same thing as sample(), but uses the NumPy built-in function numpy.random.choice()
+def sample_choice(pmf, support=None):
+    return npr.choice(support, p=pmf)
 
 
 # Number of points in the pmf support
