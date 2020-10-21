@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import numpy as np
 import numpy.linalg as la
 import numpy.random as npr
@@ -16,30 +15,9 @@ def sympart(A):
     return 0.5*(A+A.T)
 
 
-def plot_gain_hist(K_hist):
-    n, m = K_hist.shape[2], K_hist.shape[1]
-    fig, ax = plt.subplots()
-    for i in range(m):
-        for j in range(n):
-            ax.plot(K_hist[:, i, j], label='(%1d, %1d)' % (i, j))
-    ax.legend()
-    ax.set_title('Entrywise Gains')
-    return fig, ax
-
-
-def plot_hist(x_hist, u_hist, w_hist):
-    fig, ax = plt.subplots(nrows=3)
-    ylabels = ['State', 'Input', 'Disturbance']
-    for i, (hist, ylabel) in enumerate(zip([x_hist, u_hist, w_hist], ylabels)):
-        ax[i].plot(hist, alpha=0.8)
-        ax[i].set_ylabel(ylabel)
-    ax[-1].set_xlabel('Time')
-    return fig, ax
-
-
 def lqr(A, B, Q, R, Qf, T):
     """
-    Solve a generalized linear-quadratic regulation problem
+    Solve a finite-horizon linear-quadratic regulation problem
     minimize sum(x[k].T, @ Q @ x[k] + u[k].T @ R @ u[k]) + x[T].T, @ Qf @ x[T]
     subject to x[k+1] = A[k] @ x[k] + B[k] @ u[k]
     where
@@ -75,6 +53,27 @@ def rollout(x0, A, B, T):
         u_hist[t] = u
         w_hist[t] = w
     return x_hist, u_hist, w_hist
+
+
+def plot_gain_hist(K_hist):
+    n, m = K_hist.shape[2], K_hist.shape[1]
+    fig, ax = plt.subplots()
+    for i in range(m):
+        for j in range(n):
+            ax.plot(K_hist[:, i, j], label='(%1d, %1d)' % (i, j))
+    ax.legend()
+    ax.set_title('Entrywise Gains')
+    return fig, ax
+
+
+def plot_hist(x_hist, u_hist, w_hist):
+    fig, ax = plt.subplots(nrows=3)
+    ylabels = ['State', 'Input', 'Disturbance']
+    for i, (hist, ylabel) in enumerate(zip([x_hist, u_hist, w_hist], ylabels)):
+        ax[i].plot(hist, alpha=0.8)
+        ax[i].set_ylabel(ylabel)
+    ax[-1].set_xlabel('Time')
+    return fig, ax
 
 
 if __name__ == "__main__":
