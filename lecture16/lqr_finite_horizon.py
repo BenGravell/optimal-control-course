@@ -63,6 +63,7 @@ def plot_gain_hist(K_hist):
             ax.plot(K_hist[:, i, j], label='(%1d, %1d)' % (i, j))
     ax.legend()
     ax.set_title('Entrywise Gains')
+    fig.tight_layout()
     return fig, ax
 
 
@@ -73,6 +74,7 @@ def plot_hist(x_hist, u_hist, w_hist):
         ax[i].plot(hist, alpha=0.8)
         ax[i].set_ylabel(ylabel)
     ax[-1].set_xlabel('Time')
+    fig.tight_layout()
     return fig, ax
 
 
@@ -98,5 +100,6 @@ if __name__ == "__main__":
     x_hist, u_hist, w_hist = rollout(x0, A, B, T)
 
     plt.close('all')
+    plt.style.use('../conlab.mplstyle')
     plot_gain_hist(K_hist)
     plot_hist(x_hist, u_hist, w_hist)

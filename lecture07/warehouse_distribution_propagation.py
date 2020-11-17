@@ -25,6 +25,7 @@ for t in range(T):
     ax[t].bar(prob_demand_supp, d[t])
     ax[t].set_ylim([0, 1])
 
+# TODO - incomplete!
 
 # dT = d(end,:)
 # bar(d(end,:)); ylim([0,1])

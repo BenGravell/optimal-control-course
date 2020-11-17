@@ -20,6 +20,8 @@ for i in range(n):
     c[i] = 1
     d0_list.append(c)
 
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 fig, ax = plt.subplots(ncols=n, figsize=(20, 4))
 for i, d0 in enumerate(d0_list):
     d = np.zeros([T + 1, n])
@@ -28,3 +30,5 @@ for i, d0 in enumerate(d0_list):
         d[t+1] = np.dot(d[t], P)
     ax[i].plot(d)
     ax[i].set_title('Initial State %d' % i)
+fig.tight_layout()
+plt.show()

@@ -11,6 +11,8 @@ n_list = 1 + np.arange(5)
 N = 100000
 
 # Initialize plot
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 fig, ax = plt.subplots(ncols=len(n_list), sharex=False, sharey=True, figsize=(12, 4))
 
 # Take samples and plot
@@ -22,7 +24,10 @@ for i, n in enumerate(n_list):
     ax[i].set_title('n=%d' % (i+1))
     ax[i].set_xlabel('x')
     ax[i].set_ylabel('Counts')
+    yabsmax = np.max(np.abs(y))
+    ax[i].set_xlim([-1.1*yabsmax, 1.1*yabsmax])
 fig.tight_layout()
+plt.show()
 
 # By construction, each distribution plotted has the same mean of 0 and variance of 1
 # See the Wikipedia article https://en.wikipedia.org/wiki/Product_distribution

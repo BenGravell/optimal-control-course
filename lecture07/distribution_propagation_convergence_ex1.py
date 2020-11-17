@@ -17,6 +17,8 @@ d0_list = [np.array([1, 0, 0, 0]),
            np.array([0, 0, 1, 0]),
            np.array([0, 0, 0, 1])]
 
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 for d0 in d0_list:
     d = np.zeros([T + 1, n])
     d[0] = d0
@@ -25,3 +27,5 @@ for d0 in d0_list:
     plt.figure()
     plt.plot(d)
     plt.legend(['State %d' % (i+1) for i in range(n)])
+    plt.tight_layout()
+plt.show()

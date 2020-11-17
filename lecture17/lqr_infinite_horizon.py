@@ -74,6 +74,7 @@ def plot_hist(x_hist_all, u_hist_all, w_hist_all):
             ax[i].plot(hist[:, :, k].T, color='C%d' % k, alpha=0.8)
         ax[i].set_ylabel(ylabel)
     ax[-1].set_xlabel('Time')
+    fig.tight_layout()
     return fig, ax
 
 
@@ -118,4 +119,5 @@ if __name__ == "__main__":
 
     # Plot
     plt.close('all')
+    plt.style.use('../conlab.mplstyle')
     plot_hist(x_hist_all, u_hist_all, w_hist_all)

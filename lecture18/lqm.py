@@ -192,7 +192,7 @@ if __name__ == "__main__":
 
     # Plot
     plt.close('all')
-    plt.style.use('fivethirtyeight')
+    plt.style.use('../conlab.mplstyle')
     fig, ax = plt.subplots(nrows=n, sharex=True)
     for i in range(N):
         x_hist_ol = rollout(np.zeros_like(K), T, x0)

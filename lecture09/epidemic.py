@@ -17,8 +17,8 @@ def sample_initial_state():
     # Specify the initially protected via leaky walls
     b12_offset = int(0.8*height)
     b34_offset = int(0.6*height)
-    b12_prob = 0.9
-    b34_prob = 0.9
+    b12_prob = 0.8
+    b34_prob = 0.8
     b1, b2 = [np.ones(height-b12_offset, dtype=int)*(npr.rand(height-b12_offset) > 1-b12_prob) for i in range(2)]
     b3, b4 = [np.ones(height-b34_offset, dtype=int)*(npr.rand(height-b34_offset) > 1-b34_prob) for i in range(2)]
     state_init += 3*np.fliplr(np.diag(b1, -b12_offset))

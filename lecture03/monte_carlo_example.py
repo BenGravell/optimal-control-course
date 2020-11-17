@@ -21,8 +21,11 @@ p = 0.4
 q = 0.6
 
 # Choose whether to use the faster simulation (slower one is slightly easier to understand)
-simulation_type = 'slow'
-# simulation_type = 'fast'
+# simulation_type = 'slow'
+simulation_type = 'fast'
+
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 
 # Perform Monte Carlo estimation and record the estimates as more data is used
 if simulation_type == 'slow':
@@ -57,6 +60,8 @@ elif simulation_type == 'fast':
         # Plot the history of the probability estimates
         plt.plot(p_hist, color='k', alpha=0.5)
 
-plt.ylim([0.85, 1.0])
+plt.ylim([0.90, 0.95])
 plt.xlabel('Number of Monte Carlo samples')
 plt.ylabel('Estimated probability')
+plt.tight_layout()
+plt.show()

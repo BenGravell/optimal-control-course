@@ -52,6 +52,10 @@ for i in range(N):
     samples[i] = sample(pmf, support)
 
 # Plot the pdf and empirical estimate
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 plt.plot(support, pdf, label='True pdf')
 plt.hist(samples, bins=support, density=True, label='Monte Carlo pdf')
 plt.legend()
+plt.tight_layout()
+plt.show()

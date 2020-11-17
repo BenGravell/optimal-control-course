@@ -30,6 +30,11 @@ for t in t_hist:
         Q2 = la.matrix_power(Q, t-1)
         Qdiff = Q1 - Q2
         hit_prob_hist[t] = np.sum([Qdiff[init_state, target_state] for target_state in target_states])
+
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 plt.plot(hit_prob_hist)
 plt.xlabel('Time')
 plt.ylabel('Hitting probability')
+plt.tight_layout()
+plt.show()

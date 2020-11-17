@@ -17,7 +17,7 @@ for i in range(m):
         P[j, :, i] /= np.sum(P[j, :, i])
 
 
-
+# TODO - finish, incomplete!
 
 # Stage costs
 G = np.zeros([n, m, T])

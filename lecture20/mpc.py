@@ -182,7 +182,7 @@ print('Solve time = %.3f seconds' % wall_clock_elapsed)
 
 # Plotting
 plt.close('all')
-plt.style.use('fivethirtyeight')
+plt.style.use('../conlab.mplstyle')
 t_hist = np.arange(nsteps)
 plot_trajectory(t_hist, x_hist, idx_show=[0, 1, 2], label_string='x', x_upr=x_max, x_lwr=x_min)
 plot_trajectory(t_hist, u_hist, idx_show=[0, 1, 2], label_string='u', x_upr=u_max, x_lwr=u_min)

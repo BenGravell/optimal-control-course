@@ -42,7 +42,6 @@ def state_transition(i, j, l):
     return i+d[0], j+d[1]
 
 
-
 def expected_cost(i, j):
     expected_cost = np.zeros(m)
     cost = np.zeros([m, p])

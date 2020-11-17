@@ -41,6 +41,10 @@ for i in range(num_trajectories):
         state_hist[i, t+1] = update(state_hist[i, t], demand_hist[i, t])
 
 # Plot sample trajectories
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
 plt.step(time_hist, state_hist.T, alpha=0.8)
 plt.xlabel('Time')
 plt.ylabel('Inventory')
+plt.tight_layout()
+plt.show()

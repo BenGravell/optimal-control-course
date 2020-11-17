@@ -36,7 +36,7 @@ p_tpbt = np.array([[0.6, 0.1, 0.3, 0.0],
 # Input-dependent probabilities when state is on corner boundaries
 # p_crnr =
 
-
+# TODO - finish, incomplete!
 
 
 # Stage costs

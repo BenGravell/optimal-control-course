@@ -41,7 +41,6 @@ percentiles_list = [0, 0.1, 1, 10]
 num_percentiles = len(percentiles_list)
 hist_times_list = np.linspace(0, num_timesteps, 5).astype(int)
 
-
 for k, (key, problem_setting) in enumerate(problem_settings.items()):
     a_mean = problem_setting['a_mean']
     w_mean = problem_setting['w_mean']
@@ -72,10 +71,18 @@ for k, (key, problem_setting) in enumerate(problem_settings.items()):
     for t in range(num_timesteps):
         x_var_tru_hist[t+1] = (a_mean**2 + a_std**2)*x_var_tru_hist[t] + w_std**2
 
-plt.hist(x_hist[:, -1], bins=1000, density=True)
+# Plot the empirical histogram and a Gaussian pdf with identical variance
+# This shows the limit distribution of states is very heavy-tailed
+plt.close('all')
+plt.style.use('../conlab.mplstyle')
+plt.hist(x_hist[:, -1], bins=1000, density=True, label='Empirical distribution')
 std = np.std(x_hist[:, -1])
 from scipy.stats import norm
 x = np.linspace(-4, 4, 1000)
-plt.plot(x, norm.pdf(x, scale=std))
+plt.plot(x, norm.pdf(x, scale=std), label='Normal distribution with same variance')
 plt.xlim([-4, 4])
+plt.ylim([1e-6, 1e2])
 plt.yscale('log')
+plt.legend()
+plt.tight_layout()
+plt.show()

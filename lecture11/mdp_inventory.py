@@ -13,6 +13,7 @@ npr.seed(1)
 # Transition probabilities
 p = np.array([0.1, 0.2, 0.7])  # Demand pdf, Prob[wt = 2, 1, 0]
 
+# TODO - finish, incomplete!
 
 # Stage costs
 cs = 0.1  # Unit stock storage cost
