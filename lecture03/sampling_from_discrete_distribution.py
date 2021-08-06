@@ -54,8 +54,8 @@ for i in range(N):
 # Plot the pdf and empirical estimate
 plt.close('all')
 plt.style.use('../conlab.mplstyle')
-plt.plot(support, pdf, label='True pdf')
-plt.hist(samples, bins=support, density=True, label='Monte Carlo pdf')
+plt.step(support, pdf, where='post', color='C0', label='True pdf')
+plt.hist(samples, bins=support, density=True, align='mid', color='k', alpha=0.4, label='Monte Carlo pdf')
 plt.legend()
 plt.tight_layout()
 plt.show()

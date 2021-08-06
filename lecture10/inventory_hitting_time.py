@@ -33,7 +33,7 @@ for t in t_hist:
 
 plt.close('all')
 plt.style.use('../conlab.mplstyle')
-plt.plot(hit_prob_hist)
+plt.step(t_hist, hit_prob_hist)
 plt.xlabel('Time')
 plt.ylabel('Hitting probability')
 plt.tight_layout()
