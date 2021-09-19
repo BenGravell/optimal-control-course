@@ -1,3 +1,5 @@
+"""Demo script to show how to form and solve a quadratic program (QP) in Python using CVXPY"""
+
 import cvxpy as cp
 import numpy as np
 
